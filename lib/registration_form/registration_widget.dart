@@ -65,6 +65,7 @@ class _RegistrationFormWidgetState extends State<RegistrationFormWidget> {
           padding: EdgeInsets.only(top: paddingBetweenFields),
           child: Observer(
             builder: (_) => TextField(
+              obscureText: true,
               onChanged: (value) =>
                   viewModel.registrationFormStore.setPassword(value),
               decoration: InputDecoration(
@@ -79,6 +80,7 @@ class _RegistrationFormWidgetState extends State<RegistrationFormWidget> {
           padding: EdgeInsets.only(top: paddingBetweenFields),
           child: Observer(
             builder: (_) => TextField(
+              obscureText: true,
               onChanged: (value) =>
                   viewModel.registrationFormStore.setConfirmedPassword(value),
               decoration: InputDecoration(
@@ -92,7 +94,7 @@ class _RegistrationFormWidgetState extends State<RegistrationFormWidget> {
         Padding(
           padding: EdgeInsets.only(top: 30),
           child: RaisedButton(
-            onPressed: () {},
+            onPressed: viewModel.register,
             child: Text("Salvar"),
           ),
         )

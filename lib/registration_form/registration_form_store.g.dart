@@ -130,6 +130,12 @@ mixin _$RegistrationFormStore on _RegistrationFormStore, Store {
 }
 
 mixin _$RegistrationErrorFormStore on _RegistrationErrorFormStore, Store {
+  Computed<bool> _$hasErrorsComputed;
+
+  @override
+  bool get hasErrors =>
+      (_$hasErrorsComputed ??= Computed<bool>(() => super.hasErrors)).value;
+
   final _$nameAtom = Atom(name: '_RegistrationErrorFormStore.name');
 
   @override
@@ -249,7 +255,7 @@ mixin _$RegistrationErrorFormStore on _RegistrationErrorFormStore, Store {
   @override
   String toString() {
     final string =
-        'name: ${name.toString()},email: ${email.toString()},password: ${password.toString()},confirmedPassword: ${confirmedPassword.toString()}';
+        'name: ${name.toString()},email: ${email.toString()},password: ${password.toString()},confirmedPassword: ${confirmedPassword.toString()},hasErrors: ${hasErrors.toString()}';
     return '{$string}';
   }
 }
